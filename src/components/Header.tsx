@@ -3,6 +3,7 @@ import { searchArtwork } from "../api/searchApi";
 import { type Artwork } from "../api/getApi";
 
 import ResultsSearch from "./ResultsSearch";
+import { Link } from "react-router";
 
 const Header = () => {
   // ---------------------------
@@ -50,8 +51,12 @@ const Header = () => {
       <div className="navbar inset-x-0 top-0 z-50 bg-base-100 shadow-sm fixed">
         {/* Left side: Navigation links */}
         <div className="flex-1">
-          <span className="btn btn-ghost text-xl">Home</span>
-          <span className="btn btn-ghost text-xl">My Fav</span>
+          <Link to={"/"} className="btn btn-ghost text-xl">
+            Home
+          </Link>
+          <Link to={"myfav"} className="btn btn-ghost text-xl">
+            My Fav
+          </Link>
         </div>
 
         {/* Right side: Search input and button */}

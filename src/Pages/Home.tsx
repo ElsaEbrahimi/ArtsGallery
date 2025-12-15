@@ -16,9 +16,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-100 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src="hero-bg.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+          <img src="default.jpg" className="w-4xl rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold">Our Art Galley</h1>
             <p className="py-6">
