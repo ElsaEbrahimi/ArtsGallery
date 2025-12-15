@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/detail" element={<SingleArt />} />
-          <Route path="/myfav" element={<MyFavArt />} />
+          <Route path="detail" element={<SingleArt />} />
+          <Route path="myfav" element={<MyFavArt />} />
         </Route>
       </Routes>
     </>
