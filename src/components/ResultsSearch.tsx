@@ -7,11 +7,13 @@ const ResultsSearch = ({ artwork }: Props) => {
   return (
     <li className="list-row py-10">
       <div>
-        <img
-          alt={artwork.title}
-          className="w-20 h-20 object-cover rounded"
-          src={getArtworkImageUrl(artwork.image_id)}
-        />
+        {artwork.image_id && (
+          <img
+            alt={artwork.title}
+            className="w-20 h-20 object-cover rounded"
+            src={getArtworkImageUrl(artwork.image_id)}
+          />
+        )}
       </div>
       <div>
         <div>{artwork.title}</div>
