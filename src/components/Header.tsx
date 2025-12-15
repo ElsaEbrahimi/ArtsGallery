@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { searchArtwork } from "../api/searchApi";
 import { type Artwork } from "../api/getApi";
-import { string } from "zod";
+
 import ResultsSearch from "./ResultsSearch";
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   // ---------------------------
 
   // Store the user's search input
-  const [query, setQuery] = useState<string | null>(null);
+  const [query, setQuery] = useState<string>("");
 
   // Store the search results returned from the API
   const [results, setResults] = useState<Artwork[]>([]);
@@ -74,7 +74,7 @@ const Header = () => {
       --------------------------- */}
         {isDialogOpen && (
           <div className="fixed inset-0 bg-gray/50 flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-lg w-2xl h-[100vh] overflow-y-auto">
+            <div className="bg-white p-6 rounded-lg w-2xl h-screen overflow-y-auto">
               <h2 className="text-xl font-bold mb-4">Search Results</h2>
 
               {/* Show a message if no results */}
