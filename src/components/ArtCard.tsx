@@ -11,6 +11,7 @@ const ArtCard = ({ artwork }: Props) => {
         <figure>
           {artwork.image_id && (
             <img
+              className="w-200 h-80 object-cover rounded"
               src={getArtworkImageUrl(artwork.image_id)}
               alt={artwork.title}
             />
@@ -21,6 +22,7 @@ const ArtCard = ({ artwork }: Props) => {
           <p>{artwork.artist_title}</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">See Details</button>
+            <button className="btn btn-ghost material-icons">favorite</button>
           </div>
         </div>
       </div>
