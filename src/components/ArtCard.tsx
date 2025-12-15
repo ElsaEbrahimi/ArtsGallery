@@ -1,7 +1,29 @@
-const ArtCard = () => {
+import { type Artwork } from "../api/getApi";
+import { getArtworkImageUrl } from "../api/getImage";
+type Props = {
+  artwork: Artwork;
+};
+
+const ArtCard = ({ artwork }: Props) => {
   return (
     <>
-      <p>Here is ArtCard</p>
+      <div className="card bg-base-100 w-96 shadow-sm">
+        <figure>
+          {artwork.image_id && (
+            <img
+              src={getArtworkImageUrl(artwork.image_id)}
+              alt={artwork.title}
+            />
+          )}
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">{artwork.title}</h2>
+          <p>{artwork.artist_title}</p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">See Details</button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
