@@ -1,4 +1,5 @@
 import { getArtworkImageUrl } from "../api/getImage";
+import { type Artwork } from "../api/getApi";
 type Props = {
   artwork: Artwork;
 };
