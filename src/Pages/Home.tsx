@@ -1,3 +1,4 @@
+import ArtCard from "../components/ArtCard";
 import { useArtwork } from "../context/useArtwork";
 
 const Home = () => {
@@ -15,9 +16,11 @@ const Home = () => {
 
   return (
     <>
-      {artworks.map((art) => (
-        <p key={art.id}>{art.title}</p>
-      ))}
+      <div className="my-10 grid grid-cols-1 content-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
+        {artworks.map((artwork) => (
+          <ArtCard artwork={artwork} key={artwork.id} />
+        ))}
+      </div>
     </>
   );
 };
