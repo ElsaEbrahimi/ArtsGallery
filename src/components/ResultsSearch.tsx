@@ -1,9 +1,11 @@
 import { getArtworkImageUrl } from "../api/getImage";
 import { type Artwork } from "../api/getApi";
+import { useNavigate } from "react-router";
 type Props = {
   artwork: Artwork;
 };
 const ResultsSearch = ({ artwork }: Props) => {
+  const navigate = useNavigate();
   return (
     <li className="list-row py-10">
       <div>
@@ -22,7 +24,12 @@ const ResultsSearch = ({ artwork }: Props) => {
         </div>
       </div>
       <div className="card-actions justify-end">
-        <button className="btn btn-primary">See Details</button>
+        <button
+          onClick={() => navigate(`/${artwork.id}`)}
+          className="btn btn-primary"
+        >
+          See Details
+        </button>
       </div>
     </li>
   );

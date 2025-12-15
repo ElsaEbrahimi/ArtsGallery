@@ -1,10 +1,12 @@
 import { type Artwork } from "../api/getApi";
 import { getArtworkImageUrl } from "../api/getImage";
+import { useNavigate } from "react-router";
 type Props = {
   artwork: Artwork;
 };
 
 const ArtCard = ({ artwork }: Props) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -21,7 +23,12 @@ const ArtCard = ({ artwork }: Props) => {
           <h2 className="card-title">{artwork.title}</h2>
           <p>{artwork.artist_title}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">See Details</button>
+            <button
+              onClick={() => navigate(`/${artwork.id}`)}
+              className="btn btn-primary"
+            >
+              See Details
+            </button>
             <button className="btn btn-ghost material-icons">favorite</button>
           </div>
         </div>
