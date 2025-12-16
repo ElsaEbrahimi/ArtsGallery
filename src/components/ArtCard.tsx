@@ -22,6 +22,8 @@ const ArtCard = ({ artwork }: Props) => {
     }
   };
 
+  const handelNoteClick = () => {};
+
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -50,6 +52,16 @@ const ArtCard = ({ artwork }: Props) => {
             >
               favorite
             </button>
+            {isFavorite && (
+              <button
+                onClick={handelNoteClick}
+                className={`btn btn-soft material-icons ${
+                  isFavorite ? "text-red-800" : "text-white"
+                }`}
+              >
+                create
+              </button>
+            )}
           </div>
         </div>
       </div>
