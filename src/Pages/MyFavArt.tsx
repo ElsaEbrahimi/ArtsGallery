@@ -1,20 +1,19 @@
+import { useFavorite } from "../context/useFavorite";
+import ArtCard from "../components/ArtCard";
+
 const MyFavArt = () => {
+  const { favorites } = useFavorite();
+
+  if (favorites.length === 0) {
+    return <p className="text-center mt-10">No favorite artworks yet.</p>;
+  }
+
   return (
-    <>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Hello From Fave</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
+      {favorites.map((artwork) => (
+        <ArtCard key={artwork.id} artwork={artwork} />
+      ))}
+    </div>
   );
 };
 

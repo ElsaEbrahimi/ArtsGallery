@@ -30,10 +30,14 @@ const SingleArt = () => {
           <div>
             <h1 className="text-5xl font-bold">{artwork.title}</h1>
             <p className="py-6">{artwork.artist_title ?? "Unknown Artist"}</p>
-            <button onClick={() => navigate(-1)} className="btn btn-primary">
-              Back
-            </button>
-            <button className="btn btn-ghost material-icons">favorite</button>
+            <div className="card-actions justify-end">
+              <button onClick={() => navigate(-1)} className="btn btn-soft">
+                Back
+              </button>
+              <button className="btn btn-soft material-icons text-white">
+                favorite
+              </button>
+            </div>
           </div>
         </div>
       </div>

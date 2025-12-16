@@ -1,5 +1,5 @@
 import { type Artwork } from "../api/getApi";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 type FavoriteContextType = {
   favorites: Artwork[];
@@ -13,8 +13,18 @@ type Props = {
   children: React.ReactNode;
 };
 const FavoriteContextProvider = ({ children }: Props) => {
+  const loadFavorites = () => {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  };
+
   // State to store user's favorite artworks
-  const [favorites, setFavorites] = useState<Artwork[]>([]);
+  const [favorites, setFavorites] = useState<Artwork[]>(() => loadFavorites());
+
+  // Save favorites to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   // Add artwork to favorites (prevent duplicates)
   const addToFavorite = (artwork: Artwork) => {
