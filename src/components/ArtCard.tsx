@@ -11,13 +11,11 @@ const ArtCard = ({ artwork }: Props) => {
     <>
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure>
-          {artwork.image_id && (
-            <img
-              className="w-200 h-80 object-cover rounded"
-              src={getArtworkImageUrl(artwork.image_id)}
-              alt={artwork.title}
-            />
-          )}
+          <img
+            className="w-200 h-80 object-cover rounded"
+            src={getArtworkImageUrl(artwork.image_id!)}
+            alt={artwork.title ?? "No Title"}
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{artwork.title}</h2>

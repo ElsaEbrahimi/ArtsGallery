@@ -21,13 +21,12 @@ const SingleArt = () => {
     <>
       <div className="hero bg-base-200 min-h-screen justify-start">
         <div className="hero-content flex-col lg:flex-row">
-          {artwork.image_id && (
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src={getArtworkImageUrl(artwork.image_id)}
-              alt={artwork.title}
-            />
-          )}
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src={getArtworkImageUrl(artwork.image_id!)}
+            alt={artwork.title}
+          />
+
           <div>
             <h1 className="text-5xl font-bold">{artwork.title}</h1>
             <p className="py-6">{artwork.artist_title ?? "Unknown Artist"}</p>
