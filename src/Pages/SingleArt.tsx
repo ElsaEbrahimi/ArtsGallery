@@ -19,7 +19,7 @@ const SingleArt = () => {
   }
 
   // Check if artwork is already in favorites
-  const isFavorite = favorites.some((fav) => fav.id === artwork.id);
+  const isFavorite = favorites.includes(artwork);
 
   const handelClick = () => {
     if (isFavorite) {
@@ -54,6 +54,15 @@ const SingleArt = () => {
               >
                 favorite
               </button>
+              {isFavorite && (
+                <button
+                  className={`btn btn-soft material-icons ${
+                    isFavorite ? "text-red-800" : "text-white"
+                  }`}
+                >
+                  create
+                </button>
+              )}
             </div>
           </div>
         </div>
