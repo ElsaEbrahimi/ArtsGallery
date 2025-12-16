@@ -51,11 +51,11 @@ const Header = () => {
       <div className="navbar inset-x-0 top-0 z-50 bg-base-100 shadow-sm fixed">
         {/* Left side: Navigation links */}
         <div className="flex-1">
-          <Link to={"/"} className="btn btn-ghost text-xl">
-            Home
+          <Link to={"/"} className="btn btn-ghost text-xl material-icons">
+            home
           </Link>
-          <Link to={"myfav"} className="btn btn-ghost text-xl">
-            My Fav
+          <Link to={"myfav"} className="btn btn-ghost text-xl material-icons">
+            favorite
           </Link>
         </div>
 

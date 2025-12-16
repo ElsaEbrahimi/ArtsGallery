@@ -3,12 +3,13 @@ import { useParams } from "react-router";
 import { type Artwork } from "../api/getApi";
 import { getArtworkImageUrl } from "../api/getImage";
 import { useNavigate } from "react-router";
+import { useFavorite } from "../context/useFavorite";
 
 const SingleArt = () => {
   const { artworks } = useArtwork();
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const { addToFavorite, removeFromFavorite, favorites } = useFavorite();
   // convert id from string to number
   const artworkid = artworks.findIndex((art) => art.id === Number(id));
   const artwork: Artwork | undefined = artworks[artworkid];
@@ -16,6 +17,17 @@ const SingleArt = () => {
   if (!artwork) {
     return <div className="p-10">Artwork not found</div>;
   }
+
+  // Check if artwork is already in favorites
+  const isFavorite = favorites.some((fav) => fav.id === artwork.id);
+
+  const handelClick = () => {
+    if (isFavorite) {
+      removeFromFavorite(artworkid);
+    } else {
+      addToFavorite(artwork);
+    }
+  };
 
   return (
     <>
@@ -34,7 +46,12 @@ const SingleArt = () => {
               <button onClick={() => navigate(-1)} className="btn btn-soft">
                 Back
               </button>
-              <button className="btn btn-soft material-icons text-white">
+              <button
+                onClick={handelClick}
+                className={`btn btn-soft material-icons ${
+                  isFavorite ? "text-red-800" : "text-white"
+                }`}
+              >
                 favorite
               </button>
             </div>

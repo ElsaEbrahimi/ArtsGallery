@@ -1,7 +1,7 @@
 import { type Artwork } from "../api/getApi";
 import React, { createContext, useState, useEffect } from "react";
 
-type FavoriteContextType = {
+export type FavoriteContextType = {
   favorites: Artwork[];
   addToFavorite: (artwork: Artwork) => void;
   removeFromFavorite: (id: number) => void;
@@ -13,6 +13,7 @@ type Props = {
   children: React.ReactNode;
 };
 const FavoriteContextProvider = ({ children }: Props) => {
+  // Load favorites from localStorage
   const loadFavorites = () => {
     const stored = localStorage.getItem("favorites");
     return stored ? JSON.parse(stored) : [];
